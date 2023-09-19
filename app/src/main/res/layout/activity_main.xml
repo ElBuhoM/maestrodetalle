@@ -30,4 +30,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rvDog"
+        app:layout_constraintEnd_toEndOf="@+id/rvDog"
+        app:layout_constraintStart_toStartOf="@+id/rvDog"
+        app:layout_constraintTop_toBottomOf="@+id/svDogs" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.admc.maestrodetalle.R
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity(), OnQueryTextListener {
         setContentView(binding.root)
         binding.svDogs.setOnQueryTextListener(this)
         inintRecyclerView()
+        viewModel.isLoanding.observe(this, Observer {
+            binding.progress.isVisible = it
+        })
+
 
     }
 
@@ -39,6 +44,7 @@ class MainActivity : AppCompatActivity(), OnQueryTextListener {
     }
     private fun searchByName(query: String){
         viewModel.fetchDogImages("$query/images"){showError()}
+
         hiddenKeyBoard()
 
     }
